@@ -1,0 +1,47 @@
+// Função para verificar se um número é primo
+function isPrime(num) {
+    // Números menores ou iguais a 1 não são primos
+    if (num <= 1) return false;
+    // 2 e 3 são primos
+    if (num <= 3) return true;
+    // Elimina múltiplos de 2 e 3
+    if (num % 2 === 0 || num % 3 === 0) return false;
+    // Verifica divisores a partir de 5, incrementando em 6
+    for (let i = 5; i * i <= num; i += 6) {
+        if (num % i === 0 || num % (i + 2) === 0) return false;
+    }
+    return true;
+}
+
+// Função para encontrar e exibir os 10 maiores números primos a partir de um número fornecido pelo usuário
+function findLargestPrimes() {
+    // Solicita um número ao usuário
+    const userInput = prompt("Digite um número: ");
+    // Converte a entrada do usuário para um inteiro
+    const startNum = parseInt(userInput, 10);
+
+    // Verifica se a entrada do usuário é um número válido
+    if (isNaN(startNum)) {
+        console.log("Por favor, insira um número válido.");
+        return;
+    }
+
+    // Inicializa variáveis
+    let num = startNum;
+    const primes = [];
+
+    // Loop para encontrar os 10 maiores números primos
+    while (primes.length < 10) {
+        if (isPrime(num)) {
+            primes.push(num);
+        }
+        num++;
+    }
+
+    // Exibe os números primos encontrados
+    console.log(`Os 10 maiores números primos a partir de ${startNum} são:`);
+    console.log(primes.join(", "));
+}
+
+// Chama a função para iniciar o processo
+findLargestPrimes();
