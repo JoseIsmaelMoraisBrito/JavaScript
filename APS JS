@@ -1,3 +1,10 @@
+/*
+APS da Disciplina Programação em JavaScript
+Unicarioca
+Turma: 123N
+Nome: José Ismael de Morais Brito
+Matricula: 2024100569
+*/
 // Função para verificar se um número é primo
 function isPrime(num) {
     // Números menores ou iguais a 1 não são primos
